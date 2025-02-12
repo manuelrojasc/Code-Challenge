@@ -1,0 +1,29 @@
+info:
+  version: "@project.version@"
+  title: Alumnos Microservice
+
+server:
+  port: 8080
+
+spring:
+  profiles.active: dev
+  webflux:
+    base-path: /api/v1
+  data:
+    mongodb:
+      database: ${DATABASE_NAME:student}
+      uri: ${DATABASE_URI:mongodb+srv://your_uri@cluster0.ukrli.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0}
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+  level:
+    root: INFO
+    org.springframework: DEBUG
+    com.code.challenge: DEBUG
+  date-format: yyyy-MM-dd HH:mm:ss
